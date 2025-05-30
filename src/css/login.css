@@ -1,0 +1,60 @@
+
+.loginContainer {
+  background-image: url("https://t3.ftcdn.net/jpg/09/61/27/48/360_F_961274808_fX06eKzHJDCX9LO1Uew8YsL8Gk7RDZBu.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.bg-white {
+  background: rgba(255,255,255,0.95) !important;
+}
+
+@media (max-width: 992px) {
+  .bg-white {
+    width: 80% !important;
+    padding: 2rem 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-white {
+    width: 98% !important;
+    padding: 1rem 0.5rem !important;
+  }
+  .inputStyle {
+    min-height: unset;
+    padding: 2rem 0;
+  }
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .bg-white {
+    padding: 0.5rem 0.2rem !important;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+}
