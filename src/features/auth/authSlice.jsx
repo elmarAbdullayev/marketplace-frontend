@@ -1,35 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Initialer Zustand des Authentifizierungs-Slices
-// Versuche, den Token aus localStorage zu laden, falls vorhanden
 const initialToken = localStorage.getItem('authToken');
+const storedUser = localStorage.getItem("myUser");
+const initialUser = storedUser ? JSON.parse(storedUser) : null;
+
 
 const authSlice = createSlice({
-  name: 'auth', // Name des Slices
+  name: 'auth',
   initialState: {
-    token: initialToken || null, // Speichert den JWT-Token
-    user: null, // Könnte Benutzerdetails speichern (z.B. ID, Name, Rolle)
+    token: initialToken || null, 
+    user:initialUser ,
     isLoggedIn: !!initialToken, // Ein boolescher Wert, der anzeigt, ob der Benutzer eingeloggt ist
   },
   reducers: {
     // Reducer für das Einloggen / Setzen von Anmeldeinformationen
     setCredentials: (state, action) => {
-      const { token, user } = action.payload; // Erwarte Token und optional User-Daten
+      const { token, user } = action.payload;
       state.token = token;
       state.user = user;
-      state.isLoggedIn = true; // Setzt isLoggedIn auf true
-      localStorage.setItem('authToken', token); // Token im localStorage speichern
-      // Optional: Speichere auch User-Infos, wenn sie vom Backend kommen und nützlich sind
-      // if (user) localStorage.setItem('currentUser', JSON.stringify(user));
+      state.isLoggedIn = true; 
+      localStorage.setItem('authToken', token); 
+      localStorage.setItem('myUser', JSON.stringify(user));   
     },
     // Reducer für das Ausloggen
     logout: (state) => {
       state.token = null;
       state.user = null;
-      state.isLoggedIn = false; // Setzt isLoggedIn auf false
-      localStorage.removeItem('authToken'); // Token aus localStorage entfernen
-      // Optional: Entferne auch User-Infos, wenn sie gespeichert wurden
-      // localStorage.removeItem('currentUser');
+      state.isLoggedIn = false; 
+      localStorage.removeItem('authToken'); 
+      localStorage.removeItem('myUser');
+      localStorage.removeItem("itemId")
     },
   },
 });

@@ -3,8 +3,8 @@ import { Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { setCredentials } from "../features/auth/authSlice"; 
-import { useDispatch } from "react-redux";
+import { setCredentials,selectCurrentUser } from "../features/auth/authSlice"; 
+import { useDispatch, useSelector } from "react-redux";
  
  function Login(){
 
@@ -17,7 +17,6 @@ import { useDispatch } from "react-redux";
     const [error2, setError2] = useState("");     
 
            const dispatch = useDispatch(); 
-
 
      const url = "http://127.0.0.1:8000/login";
 
@@ -51,7 +50,7 @@ try {
 
           if (response.data && response.data.access_token) {
                 dispatch(setCredentials({ 
-                    token: response.data.token, 
+                    token: response.data.access_token, 
                     user: response.data.user // Optional: Wenn Benutzerdetails zurückkommen
                 }));
                 alert("Registrierung erfolgreich! Sie sind jetzt eingeloggt.");
