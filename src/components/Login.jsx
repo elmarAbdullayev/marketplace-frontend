@@ -3,8 +3,8 @@ import { Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { setCredentials,selectCurrentUser } from "../features/auth/authSlice"; 
-import { useDispatch, useSelector } from "react-redux";
+import { setCredentials } from "../features/auth/authSlice"; 
+import { useDispatch } from "react-redux";
  
  function Login(){
 

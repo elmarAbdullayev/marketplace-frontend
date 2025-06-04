@@ -72,8 +72,8 @@ const id = dataId ? parseInt(dataId, 10) : null;
         <div className="col-md-8">
           {newdata ? (
             <>
-              <img
-                src={newdata.picture}
+              <img  
+                src={`http://localhost:8000${newdata.picture}`}
                 alt={newdata.title}
                 className="img-fluid mb-3 d-block mx-auto"
                 style={{ maxHeight: "400px", objectFit: "contain" }}
@@ -81,6 +81,9 @@ const id = dataId ? parseInt(dataId, 10) : null;
               <p className="text-center">{formatted}</p>
               <h3 className="text-center">{newdata.title}</h3>
               <p className="text-center">{newdata.info}</p>
+
+                                               <Link to={"/"} className="fs-4 text-decoration-none">homepage</Link>
+
             </>
           ) : (
             <p className="text-center">Login to see moreinformation about this item!</p> 
@@ -99,7 +102,9 @@ const id = dataId ? parseInt(dataId, 10) : null;
                 <p><strong>User-Number:</strong> {user.number}</p>
                 <p><strong>Street:</strong> {user.street}</p>
                 <p><strong>Street number:</strong> {user.street_number}</p>
+
               </>
+              
             ) : (
               <p><Link to={"/login"}>Login</Link></p>
             )}

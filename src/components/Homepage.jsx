@@ -56,7 +56,7 @@ useEffect(() => {
     const fetchData = async () => {
    try {
           const response = await axios.get(url);
-          console.log(response);
+          console.log("sss",response.data);
           setNewData(response.data)
           setTempData(response.data)
         } catch (error) {
@@ -80,7 +80,7 @@ useEffect(() => {
   }
 
   const handleClick = (value) =>{
-       const val = value.toLowerCase();
+       const val = value?.toLowerCase();
        const filtered = tempData?.filter(item => item.category.toLowerCase() === val)
          setNewData(filtered);
   }
@@ -189,7 +189,7 @@ useEffect(() => {
 <div className="card-container">
   {newdata?.map((item, key) => (
     <div className="card" key={key}  onClick={()=>handleClickCard(item.ID)}>
-      <img src={item.picture} alt={item.title} className="card-image" />
+      <img src={`http://localhost:8000${item.picture}`}alt={item.data} className="card-image" />
       <h3 className="card-title">{item.title}</h3>
       <p className="card-info">{item.info}</p>
     </div>
