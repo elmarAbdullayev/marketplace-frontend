@@ -3,6 +3,15 @@
 }
 
 
+.logo{
+  background: linear-gradient(to right, red, blue);
+  padding: 1rem;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .werbung{
     background-image: url("https://images.unsplash.com/photo-1517241034903-9a4c3ab12f00?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBkZXNpZ258ZW58MHx8MHx8fDA%3D");
     background-position: center;
@@ -23,13 +32,14 @@
   
   
   .login {
-    background-color: red;
+  background: linear-gradient(to right, red, blue);
     padding: 0.5rem 2rem;
     border-radius: 2rem;
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .catalogImages {
@@ -72,6 +82,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
 .card {
@@ -111,7 +122,14 @@
      .login {
         background-color: red;
         padding: 0.5rem 1rem;
+
+
     }
   }
   
+  @media (max-width: 576px) {
+  .logo {
+    display: none;
+  }
+}
   

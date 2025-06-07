@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../css/newadvertisement.css";
 import { selectIsLoggedIn, selectCurrentUser } from '../features/auth/authSlice';
 import { useSelector } from 'react-redux';
 import axios from "axios";
 import { selectCurrentToken } from "../features/auth/authSlice";
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function Newadvertisement() {
     const url = "http://127.0.0.1:8000/savedata";
+
+    const navigate = useNavigate()
 
     const token = useSelector(selectCurrentToken);
     const currentUser = useSelector(selectCurrentUser);
@@ -179,7 +181,7 @@ function Newadvertisement() {
                 )}
 
                 <button type="submit">Absenden</button>
-                 <Link to={"/"} className="fs-4 text-decoration-none">homepage</Link>
+                <Button onClick={() => navigate("/")} className="fs-4 w-50">homepage</Button>
 
             </form>
         </div>

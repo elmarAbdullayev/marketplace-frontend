@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import axios from "axios";
 import { selectCurrentToken } from "../features/auth/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function Item() {
   const [newdata, setNewData] = useState(null); 
@@ -14,6 +15,9 @@ const id = dataId ? parseInt(dataId, 10) : null;
 
   const token = useSelector(selectCurrentToken);
   const urlforitem = `http://127.0.0.1:8000/getonedata/${id}`;
+
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,7 +86,7 @@ const id = dataId ? parseInt(dataId, 10) : null;
               <h3 className="text-center">{newdata.title}</h3>
               <p className="text-center">{newdata.info}</p>
 
-                                               <Link to={"/"} className="fs-4 text-decoration-none">homepage</Link>
+                                               <Button onClick={() => navigate("/")} className="fs-4 text-decoration-none">homepage</Button>
 
             </>
           ) : (

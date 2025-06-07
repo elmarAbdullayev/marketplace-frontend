@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLoggedIn, logout } from '../features/auth/authSlice'; 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { selectCurrentToken } from "../features/auth/authSlice";
+import { selectCurrentToken,selectCurrentUser } from "../features/auth/authSlice";
 import "../css/homepage.css"
 import { useNavigate } from "react-router-dom";
 import {jwtDecode}  from "jwt-decode"
@@ -22,7 +22,8 @@ function Homepage() {
          const url = "http://127.0.0.1:8000/getdata";
 
     const isLoggedIn = useSelector(selectIsLoggedIn);
-      const token = useSelector(selectCurrentToken)
+    const token = useSelector(selectCurrentToken)  
+    const user = useSelector(selectCurrentUser)
     const dispatch = useDispatch(); 
 
 useEffect(() => {
@@ -80,6 +81,7 @@ useEffect(() => {
   }
 
   const handleClick = (value) =>{
+    console.log(value)
        const val = value?.toLowerCase();
        const filtered = tempData?.filter(item => item.category.toLowerCase() === val)
          setNewData(filtered);
@@ -106,7 +108,7 @@ useEffect(() => {
                     <div style={{ cursor: "pointer" }}>
                         <RxHamburgerMenu className="fs-2 text-danger" />
                     </div>
-                    <div>Gratis.com</div>
+                    <Link to={"/"} className="logo text-decoration-none">Gratis.com</Link>
                 </div>
 
                 <div className="d-flex w-50">
@@ -120,22 +122,30 @@ useEffect(() => {
                     
                 </div>
 
-                {!isLoggedIn ? (
-                    <>
-                        <Link to={"/login"} className="login">login</Link>
-                        <Link to={"/register"} className="login" style={{ background: "green" }}>register</Link>
-                    
-                    </>
-                ) : (
-                    <>
-                        {/* If logged in, show a logout button and potentially other user-specific links */}
-                        <Link to={"/newadvertisement"} className="login">New advertisement</Link>
-                        <Button onClick={handleLogout} className="login" style={{ background: "red" }}>Logout</Button>
-                    </>
-                )}
+        <div className="d-flex flex-wrap gap-3 justify-content-center">
+  {!isLoggedIn ? (
+    <>
+      <Link to={"/login"} className="login">login</Link>
+      <Link to={"/register"} className="login" style={{ background: "green" }}>register</Link>
+    </>
+  ) : (
+    <>
+      <Link to={"/newadvertisement"} className="login">New advertisement</Link>
+      <Button onClick={handleLogout} className="login">Logout</Button>
+
+
+        {user.role === "admin" && (
+            <>
+                      <Link to={"/adminpanel"} className=" fs-4 text-danger">ADMIN PANEL</Link>
+            </>
+        )}
+    </>
+  )}
+</div>
+
             </div>
 
-            <div className="text-center text-danger fs-3">{!isLoggedIn && "login to share something"}</div>  
+            <div className="text-center text-danger fs-3">{!isLoggedIn && " 'Log in to share something.'"}</div>  
             <div className="myContainer container">
 
     <div className="catalogImages">
@@ -166,10 +176,10 @@ useEffect(() => {
     <div onClick={()=>handleClick("Animals")}>
         <img src="https://i.pinimg.com/474x/89/cf/9c/89cf9cb4591f96ab855efdee6f920aa9.jpg" alt="Animals" />
         <h5>Animals</h5>
-    </div>
-        <div onClick={()=>handleClick("Home & Livingt")}>
+    </div>  
+        <div onClick={()=>handleClick("home_living")}>
         <img src="https://essenziale-hd.com/wp-content/uploads/2016/05/small-apartment-1.jpg" alt="Home & Living" />
-        <h5>Home & Livingt</h5>
+        <h5>Home & Living</h5>
     </div>
         <div onClick={()=>handleClick("Hobbies & Leisure")}>
         <img src="https://www.casita.com/images/files/public/05072023011757PM-shutterstock_2136659695.jpg" alt="Hobbies & Leisure" />

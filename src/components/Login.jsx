@@ -46,7 +46,7 @@ try {
       "Content-Type": "application/x-www-form-urlencoded"
     }
   });
-  console.log("Response:", response);
+  console.log("Response:", response.data);
 
           if (response.data && response.data.access_token) {
                 dispatch(setCredentials({ 
