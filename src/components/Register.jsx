@@ -21,7 +21,7 @@ function Register(){
 
        const navigate = useNavigate(); 
 
-     const url = "http://127.0.0.1:8000/register";
+     const url = "https://marketplace-backend-zzu6.onrender.com/register";
 
      const handleChange = (e) => {
         setInfo({

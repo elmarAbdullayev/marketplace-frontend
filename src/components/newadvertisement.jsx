@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 function Newadvertisement() {
-    const url = "http://127.0.0.1:8000/savedata";
+    const url = "https://marketplace-backend-zzu6.onrender.com/savedata";
 
     const navigate = useNavigate()
 

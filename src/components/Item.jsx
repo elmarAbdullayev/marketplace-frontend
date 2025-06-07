@@ -14,7 +14,7 @@ const dataId = localStorage.getItem("itemId");
 const id = dataId ? parseInt(dataId, 10) : null;
 
   const token = useSelector(selectCurrentToken);
-  const urlforitem = `http://127.0.0.1:8000/getonedata/${id}`;
+  const urlforitem = `https://marketplace-backend-zzu6.onrender.com/getonedata/${id}`;
 
 
   const navigate = useNavigate()

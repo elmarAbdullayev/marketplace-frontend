@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
       const token = useSelector(selectCurrentToken)
       const user = useSelector(selectCurrentUser)
 
-      const url = "http://127.0.0.1:8000/getuser"; 
+      const url = "https://marketplace-backend-zzu6.onrender.com/getuser"; 
 
       const [role,setRole] = useState()
       const [users,setNewUsers] = useState()

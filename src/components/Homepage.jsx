@@ -19,7 +19,7 @@ function Homepage() {
 
         const navigate = useNavigate();
 
-         const url = "http://127.0.0.1:8000/getdata";
+         const url = "https://marketplace-backend-zzu6.onrender.com/getdata";
 
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const token = useSelector(selectCurrentToken)  
