@@ -19,7 +19,9 @@ function Homepage() {
 
         const navigate = useNavigate();
 
-         const url = "https://marketplace-backend-zzu6.onrender.com/getdata";
+
+         //  const url = "http://127.0.0.1:8000/getdata";  
+          const url = "https://marketplace-backend-zzu6.onrender.com/getdata";
 
     const isLoggedIn = useSelector(selectIsLoggedIn);
     const token = useSelector(selectCurrentToken)  
@@ -199,7 +201,7 @@ useEffect(() => {
 <div className="card-container">
   {newdata?.map((item, key) => (
     <div className="card" key={key}  onClick={()=>handleClickCard(item.ID)}>
-      <img src={`http://localhost:8000${item.picture}`}alt={item.data} className="card-image" />
+      <img src={item.picture}alt={item.data} className="card-image" />
       <h3 className="card-title">{item.title}</h3>
       <p className="card-info">{item.info}</p>
     </div>
