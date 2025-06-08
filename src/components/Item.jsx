@@ -10,14 +10,13 @@ function Item() {
   const [user, setUser] = useState(null);
   const [formatted, setFormatted] = useState("");
 
-const dataId = localStorage.getItem("itemId");
-const id = dataId ? parseInt(dataId, 10) : null;
+  const dataId = localStorage.getItem("itemId");
+  const id = dataId ? parseInt(dataId, 10) : null;
 
   const token = useSelector(selectCurrentToken);
   const urlforitem = `https://marketplace-backend-zzu6.onrender.com/getonedata/${id}`;
 
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,7 +55,7 @@ const id = dataId ? parseInt(dataId, 10) : null;
   }, [token, dataId, urlforitem]); 
 
   const fetchUser = async (userId) => {
-    const urlForUser = `http://127.0.0.1:8000/getuserbyid/${userId}`;
+    const urlForUser = `https://marketplace-backend-zzu6.onrender.com/getuserbyid/${userId}`;
     if (token && userId) {
       try {
         const response = await axios.get(urlForUser, {
@@ -77,7 +76,7 @@ const id = dataId ? parseInt(dataId, 10) : null;
           {newdata ? (
             <>
               <img  
-                src={`http://localhost:8000${newdata.picture}`}
+                src={newdata.picture} // Direkte Cloudinary-URL nutzen
                 alt={newdata.title}
                 className="img-fluid mb-3 d-block mx-auto"
                 style={{ maxHeight: "400px", objectFit: "contain" }}
@@ -86,13 +85,10 @@ const id = dataId ? parseInt(dataId, 10) : null;
               <h3 className="text-center">{newdata.title}</h3>
               <p className="text-center">{newdata.info}</p>
 
-                                               <Button onClick={() => navigate("/")} className="fs-4 text-decoration-none">homepage</Button>
-
+              <Button onClick={() => navigate("/")} className="fs-4 text-decoration-none">homepage</Button>
             </>
           ) : (
-            <p className="text-center">Login to see moreinformation about this item!</p> 
-            
-            
+            <p className="text-center">Login to see more information about this item!</p> 
           )}
         </div>
 
@@ -106,9 +102,7 @@ const id = dataId ? parseInt(dataId, 10) : null;
                 <p><strong>User-Number:</strong> {user.number}</p>
                 <p><strong>Street:</strong> {user.street}</p>
                 <p><strong>Street number:</strong> {user.street_number}</p>
-
               </>
-              
             ) : (
               <p><Link to={"/login"}>Login</Link></p>
             )}

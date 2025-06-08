@@ -110,11 +110,11 @@ function Register(){
     onChange={handleChange}/>
     <input type="text" placeholder="surname.." name="surname" value={info.surname}  onChange={handleChange}/>
     <input type="email" placeholder="email.." name="email" value={info.email}  onChange={handleChange}/>
-    <input type="text" placeholder="password.." name="password" value={info.password}  onChange={handleChange}/>
+    <input type="password" placeholder="password.." name="password" value={info.password}  onChange={handleChange}/>
   </div>
 
   <div className="d-flex flex-column gap-2 ">
-    <input type="text" placeholder="confirm password.." name="confirmPassword" value={info.confirmPassword}  onChange={handleChange}/>
+    <input type="password" placeholder="confirm password.." name="confirmPassword" value={info.confirmPassword}  onChange={handleChange}/>
     <input type="text" placeholder="street.." name="street" value={info.street}  onChange={handleChange}/>
     <input type="text" placeholder="street_number.." name="street_number" value={info.street_number}  onChange={handleChange}/>
     <input type="text" placeholder="phone number.." name="phone_number" value={info.phone_number}  onChange={handleChange}/>
