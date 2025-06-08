@@ -15,6 +15,7 @@ function Homepage() {
 
         const [newdata,setNewData] = useState()
         const [tempData,setTempData] = useState()
+        const [hamburger, setHamburger] = useState(false); 
 
 
         const navigate = useNavigate();
@@ -101,17 +102,39 @@ useEffect(() => {
         alert("You have been logged out."); 
     };
 
+    const handleHamburgerMenuClick = () => {
+        console.log("Hamburger menu clicked");
+        setHamburger(!hamburger); 
+
+    }
+
     return (
         <div>
             <h1 className="werbung"> </h1>
 
             <div className="options">
+
                 <div className="nameKatalog d-flex justify-content-around w-25">
-                    <div style={{ cursor: "pointer" }}>
+                    <div style={{ cursor: "pointer" }} onClick={() => handleHamburgerMenuClick()}>
                         <RxHamburgerMenu className="fs-2 text-danger" />
                     </div>
                     <Link to={"/"} className="logo text-decoration-none">Gratis.com</Link>
+
+
+  <div className={`hamburgerMenu ${hamburger ? "active" : "passive"}`}>
+  <nav className="menu-content d-flex flex-column align-items-center gap-3">
+    <Link to="/" className="menu-link">Home</Link>
+    <Link to="/about" className="menu-link">About</Link>
+    <Link to="/contact" className="menu-link">Contact</Link>
+    <Link to="/privacy" className="menu-link">Privacy Policy</Link>
+    <Link to="/imprint" className="menu-link">Imprint</Link>
+  </nav>
+</div>
+
+
                 </div>
+
+              
 
                 <div className="d-flex w-50">
                     <input
@@ -159,8 +182,8 @@ useEffect(() => {
         <img src="https://hniesfp.imgix.net/8/images/detailed/786/ZGM-00040.jpg?fit=fill&bg=0FFF&w=1500&h=1000&auto=format,compress" alt="Electronics" />
         <h5>Electronics</h5>
     </div>
-    <div onClick={()=>handleClick("Real Estate")}>
-        <img src="https://site-api.bankofbaku.com/storage/6e44c1bc-bb66-4053-910c-15da7e3124dd" alt="Real Estate" />
+    <div onClick={()=>handleClick("real_estate")}>
+        <img src="https://site-api.bankofbaku.com/storage/6e44c1bc-bb66-4053-910c-15da7e3124dd" alt="real_estate" />
         <h5>Real Estate</h5>
     </div>
     <div onClick={()=>handleClick("Fashion")}>
@@ -171,8 +194,8 @@ useEffect(() => {
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs7gIT1U4LhjsprJJW1LD1o20i8V0AG8O_CeuCj-qrpCgQ-GCEaGvHlOGkEuqDb96eItw&usqp=CAU" alt="Services" />
         <h5>Services</h5>
     </div>
-    <div onClick={()=>handleClick("Baby & Kids")}>
-        <img src="https://bubmania.com.au/cdn/shop/files/BabyhoodDiddleeDoo3in1WalkerRocker-Turquoise2_1200x.png?v=1707718586" alt="Baby & Kids" />
+    <div onClick={()=>handleClick("baby_kids")}>
+        <img src="https://bubmania.com.au/cdn/shop/files/BabyhoodDiddleeDoo3in1WalkerRocker-Turquoise2_1200x.png?v=1707718586" alt="baby_kids" />
         <h5>Baby & Kids</h5>
     </div>
     <div onClick={()=>handleClick("Animals")}>
@@ -180,15 +203,15 @@ useEffect(() => {
         <h5>Animals</h5>
     </div>  
         <div onClick={()=>handleClick("home_living")}>
-        <img src="https://essenziale-hd.com/wp-content/uploads/2016/05/small-apartment-1.jpg" alt="Home & Living" />
+        <img src="https://essenziale-hd.com/wp-content/uploads/2016/05/small-apartment-1.jpg" alt="home_living" />
         <h5>Home & Living</h5>
     </div>
-        <div onClick={()=>handleClick("Hobbies & Leisure")}>
-        <img src="https://www.casita.com/images/files/public/05072023011757PM-shutterstock_2136659695.jpg" alt="Hobbies & Leisure" />
+        <div onClick={()=>handleClick("hobbies")}>
+        <img src="https://www.casita.com/images/files/public/05072023011757PM-shutterstock_2136659695.jpg" alt="hobbies" />
         <h5>Hobbies & Leisure</h5>
     </div>
-        <div onClick={()=>handleClick("DIY & Tools")}>
-        <img src="https://th.bing.com/th/id/OIP.XiPHChaJ4qv7OBbm15mYhAHaFv?rs=1&pid=ImgDetMain" alt="DIY & Tools" />
+        <div onClick={()=>handleClick("diy_tools")}>
+        <img src="https://th.bing.com/th/id/OIP.XiPHChaJ4qv7OBbm15mYhAHaFv?rs=1&pid=ImgDetMain" alt="diy_tools" />
         <h5>DIY & Tools</h5>
     </div>
     <div onClick={()=>handleClick("Miscellaneous")}>

@@ -111,6 +111,48 @@
   color: #555;
 }
 
+.hamburgerMenu {
+  position: absolute;
+  top: 60px; 
+  right: 200px;
+  width: 200px;
+  background-color: #e94444;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hamburgerMenu.passive {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hamburgerMenu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-link {
+  color: white;
+  font-size: 1.25rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.menu-link:hover {
+  color: #ffdcdc;
+}
 
 
 
@@ -122,9 +164,15 @@
      .login {
         background-color: red;
         padding: 0.5rem 1rem;
-
-
     }
+
+    .hamburgerMenu {
+
+  right: 20px;
+
+}
+
+    
   }
   
   @media (max-width: 576px) {

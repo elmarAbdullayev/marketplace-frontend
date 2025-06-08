@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 function Newadvertisement() {  
-   // const url = "https://marketplace-backend-zzu6.onrender.com/savedata";
-     const url = "http://127.0.0.1:8000/savedata";
+    const url = "https://marketplace-backend-zzu6.onrender.com/savedata";
+     //const url = "http://127.0.0.1:8000/savedata";
 
     const navigate = useNavigate()
 
@@ -126,7 +126,7 @@ function Newadvertisement() {
                         <option value="home_living">Home & Living</option>
                         <option value="hobbies">Hobbies & Leisure</option>
                         <option value="diy_tools">DIY & Tools</option>
-                        <option value="misc">Miscellaneous</option>
+                        <option value="Miscellaneous">Miscellaneous</option>
                     </select>
                 </div>
 
