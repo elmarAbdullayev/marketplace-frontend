@@ -6,6 +6,7 @@ import Newadvertisement from "./components/newadvertisement";
 import Item from "./components/Item";
 import Footer from "./components/Footer";
 import Adminpanel from "./components/Adminpanel";
+import Profil from "./components/Profil";
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Route path="/newadvertisement" element={<Newadvertisement/>} />
       <Route path="/item" element={<Item/>} />
       <Route path="/adminpanel" element={<Adminpanel/>} />
-
+      <Route path="/profil" element={<Profil/>} />
       </Routes>
        <Footer/>
     </Router>

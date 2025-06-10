@@ -119,6 +119,8 @@ useEffect(() => {
                         <RxHamburgerMenu className="fs-2 text-danger" />
                     </div>
                     <Link to={"/"} className="logo text-decoration-none">Gratis.com</Link>
+                    <Link to={"/profil"} className="profil text-decoration-none">Profil</Link>
+
 
 
   <div className={`hamburgerMenu ${hamburger ? "active" : "passive"}`}>
@@ -155,8 +157,11 @@ useEffect(() => {
     </>
   ) : (
     <>
-      <Link to={"/newadvertisement"} className="login">New advertisement</Link>
-      <Button onClick={handleLogout} className="login">Logout</Button>
+
+       <Link to={"/newadvertisement"} className="login advertLogout">New advertisement</Link>
+      <Button onClick={handleLogout} className="login advertLogout">Logout</Button>
+
+ 
 
 
         {user.role === "admin" && (

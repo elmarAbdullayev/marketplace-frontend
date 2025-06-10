@@ -9,7 +9,7 @@ import { store } from './app/store'; // Importiere deinen Store
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}> {/* Wickle deine App in den Provider ein */}
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>
