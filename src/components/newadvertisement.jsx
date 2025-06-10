@@ -155,7 +155,6 @@ function Newadvertisement() {
 
                 <div>
                     <h5>Describe</h5>
-                    {/* name="info" hinzugefügt, passend zum Backend-Parameter */}
                     <textarea value={describe} name="info" id="describe" rows="10" maxLength="3000" className="text optional form-control w-50" onChange={handleArea}></textarea>
                 </div>
 
@@ -169,7 +168,7 @@ function Newadvertisement() {
                             id="fileInput"
                         />
                         <div>
-                            <h5>Picture *</h5> {/* Markiert als erforderlich */}
+                            <h5>Picture *</h5>
                             <button type="button" onClick={() => document.getElementById("fileInput").click()}>Bild auswählen</button>
                         </div>
 

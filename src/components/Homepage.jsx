@@ -53,7 +53,7 @@ useEffect(() => {
         dispatch(logout());
         alert("Ein Fehler ist aufgetreten. Bitte melden Sie sich erneut an.");
     }
-}, [dispatch, token]);
+}, [dispatch, token, navigate]);
 
 
  useEffect(() => {
